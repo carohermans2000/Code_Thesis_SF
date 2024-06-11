@@ -204,3 +204,54 @@ abline(h = 200, col = 'grey', lty = 3)
 abline(v = 0.00045,col= 'red')
 abline(v = 0.000485, col='red')
 
+
+#X25 event
+for(i in 1:length(u1)){
+  C1[i] = length(pflux[pflux>u1[i]])/length(pflux)
+  Ninv1[i] = ny*C1[i]*(1+shape1[i]*((0.0025-u1[i])/scale1[i]))^(-1/shape1[i])
+  N1[i] = 1/Ninv1[i]
+}
+for(i in 1:length(u1)){
+  Cflux1[i] = length(fluxies[fluxies>u1[i]])/length(fluxies)
+  Ninvflux1[i] = nyflux*Cflux1[i]*(1+shapefluxies1[i]*((0.0025-u1[i])/scalefluxies1[i]))^(-1/shapefluxies1[i])
+  Nflux1[i] = 1/Ninvflux1[i]
+}
+
+
+plot(u1,N1,ylim = c(10,25), xlim = c(0.00043,0.00049),
+     main = 'Return period of X25', type = 'l',
+     cex.main = 2.2, cex.lab = 1.5, 
+     cex.axis = 1.7,xlab = 'Threshold u', 
+     ylab = 'Return period in years')
+lines(u1,Nflux1,col = 'blue', lty = 2)
+legend("bottomright", legend = c("Original Plutino", "Adapted Plutino"), 
+       col = c("black", "blue"), lty = c(1, 2), cex = 1.5)
+
+abline(v = 0.00045,col= 'red')
+abline(v = 0.000485, col='red')
+
+#X15 event
+for(i in 1:length(u1)){
+  C1[i] = length(pflux[pflux>u1[i]])/length(pflux)
+  Ninv1[i] = ny*C1[i]*(1+shape1[i]*((0.0015-u1[i])/scale1[i]))^(-1/shape1[i])
+  N1[i] = 1/Ninv1[i]
+}
+for(i in 1:length(u1)){
+  Cflux1[i] = length(fluxies[fluxies>u1[i]])/length(fluxies)
+  Ninvflux1[i] = nyflux*Cflux1[i]*(1+shapefluxies1[i]*((0.0015-u1[i])/scalefluxies1[i]))^(-1/shapefluxies1[i])
+  Nflux1[i] = 1/Ninvflux1[i]
+}
+
+
+plot(u1,N1,ylim = c(2,5), xlim = c(0.00043,0.00049),
+     main = 'Return period of X15', type = 'l',
+     cex.main = 2.2, cex.lab = 1.5, 
+     cex.axis = 1.7,xlab = 'Threshold u', 
+     ylab = 'Return period in years')
+lines(u1,Nflux1,col = 'blue', lty = 2)
+legend("bottomright", legend = c("Original Plutino", "Adapted Plutino"), 
+       col = c("black", "blue"), lty = c(1, 2), cex = 1.5)
+
+abline(v = 0.00045,col= 'red')
+abline(v = 0.000485, col='red')
+
