@@ -17,12 +17,12 @@ solarclass = vector('numeric', length(unID))
 for (i in 1:length(unID)) {
   print(i)
   
-  #creating list of all possible values per multiID
+  #Creating list of all possible values per multiID
   k = pflux[ID == unID[i]]
   v = dates[ID == unID[i]]
   o = categ[ID == unID[i]]
   
-  #taking the max as the extreme values are our interest
+  #Taking the max as the extreme values are our interest
   fluxies[i] = max(k)
   dates1[i] = min(v)
   solarclass[i] = max(o)
